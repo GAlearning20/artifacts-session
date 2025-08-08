@@ -36,7 +36,7 @@ jobs:
       - name: deploy artifacts
         uses: actions/download-artifact@v4
         with:
-          name: demo-app-1.0.0.jar
+          name: demo-app-jar
       - name: output contents
         run: ls -la
         
