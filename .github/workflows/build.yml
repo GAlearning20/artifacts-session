@@ -23,7 +23,7 @@ jobs:
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
-          with:
+        with:
             name: demo-app-jar
             path: target/demo-app-1.0.0.jar
 
@@ -35,4 +35,7 @@ jobs:
       - name: deploy artifacts
         uses: actions/download-artifacts@v4
         with:
-          path: demo-app-jar
+          name: demo-app-jar
+      - name: output contents
+        run: ls -la
+        
