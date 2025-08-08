@@ -34,7 +34,7 @@ jobs:
     
     steps:
       - name: deploy artifacts
-        uses: actions/download-artifacts@v4
+        uses: actions/download-artifacts@v3
         with:
           name: demo-app-jar
       - name: output contents
