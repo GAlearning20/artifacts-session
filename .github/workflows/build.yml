@@ -22,11 +22,13 @@ jobs:
           java-version: '11'
 
       - name: Build with Maven
-        run: mvn clean package
+        run: | 
+          mkdir -p target
+          echo "this is a text file content" >> target/newfile.txt
 
       - name: publish
         id: publish 
-        run: find *.jar -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';'
+        run: find *.txt -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';'
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
