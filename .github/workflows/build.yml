@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 env:
-  VAR1: ${{ var.MY_NEW_VAR }}
-  NAME: ${{ var.NAME }}
+  VAR1: ${{ vars.MY_NEW_VAR }}
+  NAME: ${{ vars.NAME }}
 
 jobs:
   build:
