@@ -5,7 +5,7 @@ on:
       - main
 env:
   TARGET_REPO: ${{ vars.TARGET_REPO }}
-  TARGET_FILE: ${{ vars.TARGET_FILE}}
+  TARGET_FILE: ${{ vars.TARGET_FILE }}
   GH_PAT: ${{ secrets.GH_PAT }}
 jobs:
   pullcode:
@@ -24,8 +24,5 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifacts@v4
         with:
-          name: pulled files
-          path: newdir
-          
-          
-:
+         name: pulled files
+         path: newdir
