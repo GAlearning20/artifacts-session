@@ -17,8 +17,9 @@ jobs:
         run: |
           git clone https://$GH_PAT@github.com/${{ env.TARGET_REPO }}.git other_repo
           mkdir -p newdir
-          cp other_repo/${{ env.GH_PAT  }} newdir/
+          cp other_repo/${{ env.TARGET_FILE  }} newdir/
       - name: list directory content
         run: ls -la
           
           
+:
