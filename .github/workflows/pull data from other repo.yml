@@ -14,12 +14,13 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
       - name: clone the other repo
-        run: |
-          git clone https://$GH_PAT@github.com/${{ env.TARGET_REPO }} other_repo
-          mkdir -p newdir
-          cp other_repo/${{ env.TARGET_FILE }} newdir/
-    #  - name: list directory content
-     #   run: ls -la newdir
+        run: git clone https://${{ env.GH_PAT }}@github.com/${{ env.TARGET_REPO }} other_repo
+      - name: create new directory
+        run: mkdir -p newdir
+      - name: copy to other dir
+        run: cp other_repo/${{ env.TARGET_FILE }} newdir/
+      - name: list directory content
+        run: ls -la newdir
           
           
 :
