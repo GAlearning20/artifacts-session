@@ -21,8 +21,3 @@ jobs:
         run: cp other_repo/${{ env.TARGET_FILE }} newdir/
       - name: list directory content
         run: ls -la newdir
-      - name: Upload artifacts
-        uses: actions/upload-artifacts@v4
-        with:
-         name: newdir
-         path: newdir
