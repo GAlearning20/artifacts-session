@@ -5,6 +5,10 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+env:
+  VAR1: $ {{ var.MY_NEW_VAR }}
+  NAME: $ {{ var.NAME }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -35,6 +39,9 @@ jobs:
         with:
             name: newfile.txt
             path: target/newfile.txt
+
+      - name: print variables
+        run: echo " $VAR1 , My name is $NAME "
 
   deploy:
     needs: build
