@@ -41,7 +41,7 @@ jobs:
             path: target/newfile.txt
 
       - name: print variables
-        run: echo " $VAR1 , My name is $NAME "
+        run: echo " $ {{ env.VAR1 }} , My name is $ {{ env.NAME }}"
 
   deploy:
     needs: build
