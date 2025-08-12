@@ -19,7 +19,9 @@ jobs:
           mkdir -p newdir
           cp other_repo/${{ env.TARGET_FILE  }} newdir/
       - name: list directory content
-        run: ls -lrth
+        run: |
+          cd newdir/
+          ls -lrth
           
           
 :
