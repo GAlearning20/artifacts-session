@@ -18,6 +18,6 @@ jobs:
       - name: create new directory
         run: mkdir -p newdir
       - name: copy to other dir
-        run: cp other_repo/${{ env.TARGET_FILE }} newdir/
+        run: cp other_repo/${{ env.TARGET_FILE }} newdirectory/
       - name: list directory content
         run: ls -la newdir
