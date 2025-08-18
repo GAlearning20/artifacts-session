@@ -18,6 +18,10 @@ jobs:
       - name: create new directory
         run: mkdir -p newdir
       - name: copy to other dir
-        run: cp other_repo/${{ env.TARGET_FILE }} newdirectory/
+        id: copydata
+        run: |
+          cp other_repo/${{ env.TARGET_FILE }} newdir/
+          cp other_repo/${{ env.TARGET_FILE }} newdirectory/
       - name: list directory content
+        if: failure() && steps.copydata.outcome == 'failure'
         run: ls -la newdir
