@@ -1,13 +1,13 @@
 name : Add outside collaborators
 on:
   workflow_dispatch:
-  inputs:
-    username:
-      description: 'Github Username to add'
-      required: true
-    orgs:
-      description: 'comma seperated list of organisations'
-      required: true
+    inputs:
+      username:
+        description: 'Github Username to add'
+        required: true
+      orgs:
+        description: 'comma seperated list of organisations'
+        required: true
 jobs:
   add-collaborators:
     runs-on: ubuntu-latest
