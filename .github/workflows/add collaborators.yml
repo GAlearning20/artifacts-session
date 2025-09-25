@@ -32,8 +32,7 @@ jobs:
                 $repos = (Invoke-RestMethod -Headers $headers -Uri ""https://api.github.com/orgs/$org/repos?per_page=100").full_name
                 foreach ( $repo in $repos ) {
                 Write-Host "Adding $env:tEARGET_USER to $repo (read-only)"
-                Invoke-RestMethod -Method Put -Headers $headers `
-                -Uri "https://api.github.com/repos/$repo/collaborators/$env:TARGET_USER" `
-                -Body '{"permission":"pull"}'
+                Invoke-RestMethod -Method Put -Headers $headers ` -Uri "https://api.github.com/repos/$repo/collaborators/$env:TARGET_USER" `
+                -Body "{ `"permission`": `"pull`" }"
               }
             }
