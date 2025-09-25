@@ -33,6 +33,6 @@ jobs:
                 foreach ( $repo in $repos ) {
                 Write-Host "Adding $env:tEARGET_USER to $repo (read-only)"
                 Invoke-RestMethod -Method Put -Headers $headers ` -Uri "https://api.github.com/repos/$repo/collaborators/$env:TARGET_USER" `
-                -Body '{ "permission": "pull" }'
-              }
+                -Body '{"permission": "pull"}'
             }
+          }
