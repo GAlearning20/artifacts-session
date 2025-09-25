@@ -34,7 +34,7 @@ jobs:
                     $response = Invoke-RestMethod `
                       -Method Put `
                       -Headers $headers  `
-                      -Uri "https://api.github.com/repos/$repo/collaborators/$env:TARGET_USER" `
+                      -Uri "https://api.github.com/repos/$repoName/collaborators/$env:TARGET_USER" `
                       -Body $body `
                       -ContentType "application/json"
                      if ($response) {
