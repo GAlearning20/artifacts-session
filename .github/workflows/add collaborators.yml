@@ -26,7 +26,7 @@ jobs:
             }
             #split comma seperated ORGS into an array
               $orgs = $env:ORG_LIST -split ','
-              for each ( $org in $orgs ) {
+              foreach ( $org in $orgs ) {
                 write-Host " Processing organisation: $org"
                 #Get all repositories in the org
                 $repos = (Invoke-RestMethod -Headers $headers -Uri ""https://api.github.com/orgs/$org/repos?per_page=100").full_name
