@@ -21,8 +21,8 @@ jobs:
         run: | 
           # authorization of GIthub
           $headers = @{ Authorization = "token $env:GH_PAT" }
-          $orgList = $env:ORGS -split ","
-          foreach ( $org in $ORG_List ) {
+          $orgs = $env:ORG_LIST -split ","
+          foreach ( $org in $orgs ) {
             Write-Host "Processing organisation: $org"
                 #Get all repositories in the org
               $repos = Invoke-RestMethod -Headers $headers -Uri "https://api.github.com/orgs/$org/repos?per_page=100"
