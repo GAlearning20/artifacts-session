@@ -31,16 +31,20 @@ jobs:
                 Write-Host "Adding $env:TARGET_USER to $org/$repoName"
                 $body = @{ permission = "pull" } | ConvertTo-Json
                 try {
-                     Invoke-RestMethod `
-                     -Method Put `
-                     -Headers $headers  `
-                     -Uri "https://api.github.com/repos/$repo/collaborators/$env:TARGET_USER" `
-                     -Body $body `
-                     -ContentType "application/json"
-                   Write-Host " Added to $org/$repoName"  
+                    $response = Invoke-RestMethod `
+                      -Method Put `
+                      -Headers $headers  `
+                      -Uri "https://api.github.com/repos/$repo/collaborators/$env:TARGET_USER" `
+                      -Body $body `
+                      -ContentType "application/json"
+                     if ($response) {
+                           Write-Host " Success! API Response: $($response | ConvertTo-Json)" 
+                      } else {
+                           Write-Host "No Response"
+            }
             }
             catch {
-              Write-Host "failed for $org/$repoName - $($_.Exception.Message)"
+              Write-Host "failed to add $env:TARGET_USER to $repoName"
               }
             }
           }   
