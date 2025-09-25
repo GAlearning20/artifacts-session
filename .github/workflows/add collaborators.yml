@@ -18,7 +18,7 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
           TARGET_USER: ${{ github.event.inputs.username }}
           ORG_LIST: ${{ github.event.inputs.orgs }}
-          run: | 
+        run: | 
            #authorization of GIthub
             $headers = @{
               Authorization = "token $env:GH_PAT"
