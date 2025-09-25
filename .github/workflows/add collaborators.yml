@@ -40,7 +40,7 @@ jobs:
                    Write-Host " Added to $org/$repoName"  
             }
             catch {
-              Write-Host "failed for $org/$repoName - $($_.Exception.Message}"
+              Write-Host "failed for $org/$repoName - $($_.Exception.Message)"
               }
           }
 
