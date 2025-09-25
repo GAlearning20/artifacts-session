@@ -19,12 +19,12 @@ jobs:
           TARGET_USER: ${{ github.event.inputs.username }}
           ORG_LIST: ${{ github.event.inputs.orgs }}
         run: | 
-           #authorization of GIthub
+        #authorization of GIthub
             $headers = @{
               Authorization = "token $env:GH_PAT"
               Accept = "application/vnd.github+json"
             }
-            #split comma seperated ORGS into an array
+               #split comma seperated ORGS into an array
               $orgs = $env:ORG_LIST -split ','
               foreach ( $org in $orgs ) {
                 write-Host " Processing organisation: $org"
